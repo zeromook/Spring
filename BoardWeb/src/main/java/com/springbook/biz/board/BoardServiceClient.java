@@ -12,7 +12,7 @@ public class BoardServiceClient {
 		
 		//1. Spring 컨테이너를 구동한다.
 		AbstractApplicationContext container = 
-									new GenericXmlApplicationContext("app3.xml");
+									new GenericXmlApplicationContext("applicationContext2.xml");
 		
 		//2. Spring 컨테이너로부터 BoardServiceImpl 객체를 LookUp한다.
 		BoardService boardService = (BoardService)container.getBean("boardService");
@@ -23,10 +23,10 @@ public class BoardServiceClient {
 		vo.setWriter("홍길동1");
 		vo.setContent("임시 내용1.................");
 		boardService.insertBoard(vo);
-//		
+		
 //		vo.setSeq(3);//몇번 인덱스부터 
 //		boardService.deleteBoard(vo);//글 삭제하기
-//		
+		
 		//4. 글 목록 검색 기능 테스트
 		List<BoardVO> boardList = boardService.getBoardList(vo);
 		for(BoardVO board : boardList){
